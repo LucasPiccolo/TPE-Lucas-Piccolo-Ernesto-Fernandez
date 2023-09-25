@@ -1,0 +1,15 @@
+juegos:
+    nombre
+    edad
+    id (PK)
+    desarrollador (FK)
+    fecha de lanzamiento
+    imagen
+
+
+desarrolladores:
+    nombre
+    fecha de creacion
+    origen
+    id (PK)
+    
