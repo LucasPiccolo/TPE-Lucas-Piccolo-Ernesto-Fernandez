@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2023 at 10:51 PM
+-- Generation Time: Oct 10, 2023 at 11:44 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,19 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `desarrolladores`
---
-
-CREATE TABLE `desarrolladores` (
-  `id` int(11) NOT NULL,
-  `fechaCreacion` date NOT NULL,
-  `origen` varchar(45) NOT NULL,
-  `nombre` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `juegos`
 --
 
@@ -50,37 +37,35 @@ CREATE TABLE `juegos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `juegos`
 --
 
+INSERT INTO `juegos` (`id`, `nombre`, `fechaLanzamiento`, `desarrollador`, `edad`, `imagen`) VALUES
+(2, 'The Last Of Us', '2012-12-12', 1, 18, 'https://img.asmedia.epimg.net/resizer/xjK55qhcyoGe3KW7IvBmm76g_Z8=/736x414/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/4R5II3XXYZL3VJZUJWE4JUPNTI.jpg'),
+(7, 'Otro juego', '2018-01-05', 1, 18, 'https://img.asmedia.epimg.net/resizer/xjK55qhcyoGe3KW7IvBmm76g_Z8=/736x414/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/4R5II3XXYZL3VJZUJWE4JUPNTI.jpg'),
+(8, 'Outlast', '0000-00-00', 1, 18, ''),
+(9, 'FIFA', '2024-07-27', 2, 5, '');
+
 --
--- Indexes for table `desarrolladores`
+-- Indexes for dumped tables
 --
-ALTER TABLE `desarrolladores`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `juegos`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `desarrollador` (`desarrollador`);
+  ADD KEY `desarrollador` (`desarrollador`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `desarrolladores`
---
-ALTER TABLE `desarrolladores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `juegos`
 --
 ALTER TABLE `juegos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

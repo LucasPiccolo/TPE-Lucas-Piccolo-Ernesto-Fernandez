@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(33, 33, 116);
+}
+
+main {
+    background-color: rgb(33, 33, 116);
+}
+
+.table td {
+    background-color: rgba(0, 0, 0, 0.236);
+}
+
+.table th {
+    background-color: rgba(0, 0, 0, 0.47);
+}
+
+footer {
+    border-top: 1px black solid !important;
+}
