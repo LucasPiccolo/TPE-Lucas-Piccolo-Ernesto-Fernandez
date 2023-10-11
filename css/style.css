@@ -22,3 +22,18 @@ footer {
 .titulo-error {
     color: white;
 }
+
+.filtros-juegos {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    color: white;
+}

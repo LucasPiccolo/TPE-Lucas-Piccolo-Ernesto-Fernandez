@@ -1,6 +1,6 @@
 <?php require './templates/header.phtml' ?>
 
-<div class="dropdown">
+<div class='filtros-juegos'>
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
         Filtrar por desarrollador
     </button>
@@ -8,6 +8,9 @@
         <?php foreach($devs as $dev): ?>
         <a class="dropdown-item" href="games/developer/<?= $dev->id ?>"><?= $dev->nombreDesarrollador ?></a>
         <?php endforeach ?>
+    </div>
+    <div>
+        <a href='add-game' class='btn btn-success'>+ Agregar</a>
     </div>
 </div>
 

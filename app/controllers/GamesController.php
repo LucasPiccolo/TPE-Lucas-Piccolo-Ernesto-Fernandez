@@ -28,6 +28,20 @@ class GamesController {
         $this->view->showGames($games, $devs);
     }
 
+    public function showAddGame() {
+        $devs = $this->devsModel->getDevs();
+        $this->view->showAddGame($devs);
+    }
+
+    public function addNewGame() {
+        if (empty($_POST['nombreJuego']) || empty($_POST['fechaLanzamiento']) || empty($_POST['desarrolladorId']) || empty($_POST['edad']) || empty($_POST['descripcionJuego']) || empty($_POST['imagen'])) {
+            ErrorView::showError('No se pueden enviar datos vacíos!');
+            die();
+        }
+        $this->gamesModel->addGame();
+        header('Location: ' . BASE_URL);
+    }
+
     public function showGameById($id) {
         $game = $this->gamesModel->getGameById($id);
         if($game) {

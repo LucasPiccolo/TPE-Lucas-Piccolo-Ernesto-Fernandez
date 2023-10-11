@@ -14,8 +14,11 @@ if (!empty( $_GET['action'])) {
 }
 
 // TABLA DE RUTEO:
-// games    ->      gamesController->showGames();
-// devs     ->      devsController->showDevs();
+// games        ->      gamesController->showGames()
+// developers   ->      devsController->showDevs()
+// game         ->      gamesController->showGameById()
+// add-game     ->      gamesController->showAddGame()
+// add-new-game ->      gamesController->addNewGame()
 
 
 // parseamos la accion para separar accion real de parametros
@@ -33,6 +36,14 @@ switch ($params[0]) {
     case 'game':
         $controller = new GamesController();
         $controller->showGameById($params[1]);
+        break;
+    case 'add-game':
+        $controller = new GamesController();
+        $controller->showAddGame();
+        break;
+    case 'add-new-game':
+        $controller = new GamesController();
+        $controller->addNewGame();
         break;
     case 'developers':
         $controller = new DevsController();

@@ -25,4 +25,9 @@ class GamesModel {
         $query->execute([$id]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    public function addGame() {
+        $query = $this->db->prepare('INSERT INTO juegos (nombreJuego, fechaLanzamiento, desarrolladorId, descripcionJuego, edad, imagen) VALUES (?, ?, ?, ?, ?, ?)');
+        $query->execute([$_POST['nombreJuego'], $_POST['fechaLanzamiento'], $_POST['desarrolladorId'], $_POST['descripcionJuego'], $_POST['edad'], $_POST['imagen']]);
+    }
 }
