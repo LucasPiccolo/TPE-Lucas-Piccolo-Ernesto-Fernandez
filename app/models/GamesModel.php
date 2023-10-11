@@ -13,10 +13,16 @@ class GamesModel {
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getGamesByDev($dev) {
-        $query = $this->db->prepare('SELECT juegos.*, desarrolladores.id, desarrolladores.nombreDesarrollador FROM juegos JOIN desarrolladores ON juegos.desarrolladorId = desarrolladores.id WHERE desarrolladores.nombreDesarrollador = ?');
-        $query->execute([$dev]);
-        $games = $query->fetchAll(PDO::FETCH_OBJ);
-        return $games;
+    public function getGamesByDevId($devId) {
+        $query = $this->db->prepare('SELECT juegos.*, desarrolladores.nombreDesarrollador FROM juegos JOIN desarrolladores ON juegos.desarrolladorId = desarrolladores.id WHERE desarrolladores.id = ?');
+        $query->execute([$devId]);
+        return $query->fetchAll(PDO::FETCH_OBJ);
+        
+    }
+
+    public function getGameById($id) {
+        $query = $this->db->prepare('SELECT * FROM juegos JOIN desarrolladores ON juegos.desarrolladorId = desarrolladores.id WHERE juegos.id = ?');
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
     }
 }

@@ -1,5 +1,16 @@
 <?php require './templates/header.phtml' ?>
 
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+        Filtrar por desarrollador
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <?php foreach($devs as $dev): ?>
+        <a class="dropdown-item" href="games/developer/<?= $dev->id ?>"><?= $dev->nombreDesarrollador ?></a>
+        <?php endforeach ?>
+    </div>
+</div>
+
 <table class="table table-hover table-dark">
     <thead>
         <tr>
@@ -13,7 +24,7 @@
     <tbody>
     <?php foreach($games as $game): ?>
         <tr>
-            <td><?= $game->nombreJuego ?></td>
+            <td><a class="link-underline link-underline-opacity-0" href='game/<?= $game->id ?>'><?= $game->nombreJuego ?></a></td>
             <td><?= $game->nombreDesarrollador ?></td>
             <td><?= $game->fechaLanzamiento ?></td>
             <td><?= $game->edad ?></td>

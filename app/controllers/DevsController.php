@@ -13,6 +13,9 @@ class DevsController {
 
     public function showDevs() {
         $devs = $this->model->getDevs();
+        foreach($devs as $dev) {
+            $dev->fechaCreacion = AuxHelper::reformatDate($dev->fechaCreacion);
+        }
         $this->view->showDevs($devs);
     }
 }
