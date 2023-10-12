@@ -30,4 +30,9 @@ class GamesModel {
         $query = $this->db->prepare('INSERT INTO juegos (nombreJuego, fechaLanzamiento, desarrolladorId, descripcionJuego, edad, imagen) VALUES (?, ?, ?, ?, ?, ?)');
         $query->execute([$_POST['nombreJuego'], $_POST['fechaLanzamiento'], $_POST['desarrolladorId'], $_POST['descripcionJuego'], $_POST['edad'], $_POST['imagen']]);
     }
+
+    public function deleteGame($id) {
+        $query = $this->db->prepare('DELETE FROM juegos WHERE id = ?');
+        $query->execute([$id]);
+    }
 }

@@ -45,9 +45,25 @@ switch ($params[0]) {
         $controller = new GamesController();
         $controller->addNewGame();
         break;
+    case 'delete-game':
+        $controller = new GamesController();
+        $controller->deleteGame($params[1]);
+        break;
     case 'developers':
         $controller = new DevsController();
         $controller->showDevs();
+        break;
+    case 'add-developer':
+        $controller = new DevsController();
+        $controller->showAddDev();
+        break;
+    case 'add-new-developer':
+        $controller = new DevsController();
+        $controller->addNewDev();
+        break;
+    case 'delete-dev':
+        $controller = new DevsController();
+        $controller->deleteDev($params[1]);
         break;
     default: 
         ErrorView::showError('404 - Not Found');

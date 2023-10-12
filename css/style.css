@@ -23,10 +23,18 @@ footer {
     color: white;
 }
 
-.filtros-juegos {
+.detalles-juegos,
+.detalles-desarrolladores {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 10px;
+}
+
+.detalles-juegos {
+    justify-content: space-between;
+}
+
+.detalles-desarrolladores {
+    justify-content: end;
 }
 
 .form-group {

@@ -1,6 +1,6 @@
 <?php require './templates/header.phtml' ?>
 
-<div class='filtros-juegos'>
+<div class='detalles-juegos'>
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
         Filtrar por desarrollador
     </button>
@@ -31,7 +31,7 @@
             <td><?= $game->nombreDesarrollador ?></td>
             <td><?= $game->fechaLanzamiento ?></td>
             <td><?= $game->edad ?></td>
-            <td><button class="btn btn-warning">Editar</button><button class="btn btn-danger">Borrar</button></td>
+            <td><a class="btn btn-warning">Editar</a><a href='delete-game/<?= $game->id ?>' class="btn btn-danger">Borrar</a></td>
         </tr>
     <?php endforeach ?>
     </tbody>

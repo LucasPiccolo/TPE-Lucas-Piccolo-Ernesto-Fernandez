@@ -1,5 +1,9 @@
 <?php require './templates/header.phtml' ?>
 
+<div class='detalles-desarrolladores'>
+    <a href='add-developer' class='btn btn-success'>+ Agregar</a>
+</div>
+
 <table class="table table-hover table-dark">
     <thead>
         <tr>
@@ -15,7 +19,7 @@
             <td><?= $dev->nombreDesarrollador ?></td>
             <td><?= $dev->fechaCreacion ?></td>
             <td><?= $dev->origen ?></td>
-            <td><button class="btn btn-warning">Editar</button><button class="btn btn-danger">Borrar</button></td>
+            <td><a class="btn btn-warning">Editar</a><a href='delete-dev/<?= $dev->id ?>' class="btn btn-danger">Borrar</a></td>
         </tr>
     <?php endforeach ?>
     </tbody>

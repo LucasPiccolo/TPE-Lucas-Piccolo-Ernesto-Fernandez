@@ -50,4 +50,9 @@ class GamesController {
             ErrorView::showError('404 - Not Found: El juego seleccionado no existe.');
         }
     }
+
+    public function deleteGame($id) {
+        $this->gamesModel->deleteGame($id);
+        header('Location: ' . BASE_URL);
+    }
 }

@@ -12,4 +12,14 @@ class DevsModel {
         $query->execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function addDev() {
+        $query = $this->db->prepare('INSERT INTO desarrolladores (nombreDesarrollador, fechaCreacion, origen) VALUES (?, ?, ?)');
+        $query->execute([$_POST['nombreDesarrollador'], $_POST['fechaCreacion'], $_POST['origen']]);
+    }
+
+    public function deleteDev($id) {
+        $query = $this->db->prepare('DELETE FROM desarrolladores WHERE id = ?');
+        $query->execute([$id]);
+    }
 }
