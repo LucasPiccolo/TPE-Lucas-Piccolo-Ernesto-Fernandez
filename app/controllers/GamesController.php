@@ -2,6 +2,7 @@
 require_once "./app/models/GamesModel.php";
 require_once "./app/models/DevsModel.php";
 require_once "./app/views/GamesView.php";
+require_once "./app/views/ErrorView.php";
 require_once "./app/helpers/AuxHelper.php";
 
 class GamesController {
@@ -35,7 +36,8 @@ class GamesController {
 
     public function addNewGame() {
         if (empty($_POST['nombreJuego']) || empty($_POST['fechaLanzamiento']) || empty($_POST['desarrolladorId']) || empty($_POST['edad']) || empty($_POST['descripcionJuego']) || empty($_POST['imagen'])) {
-            ErrorView::showError('No se pueden enviar datos vacíos!');
+            $ErrorView = new ErrorView();
+            $ErrorView->showError('El juego seleccionado no existe.');
             die();
         }
         $this->gamesModel->addGame();
@@ -47,12 +49,24 @@ class GamesController {
         if($game) {
             $this->view->showGame($game);
         } else {
-            ErrorView::showError('404 - Not Found: El juego seleccionado no existe.');
+            $ErrorView = new ErrorView();
+            $ErrorView->showError('El juego seleccionado no existe.');
         }
     }
 
     public function deleteGame($id) {
         $this->gamesModel->deleteGame($id);
+        header('Location: ' . BASE_URL);
+    }
+
+    public function editGame($id) {
+        $game = $this->gamesModel->getGameById($id);
+        $devs = $this->devsModel->getDevs();
+        $this->view->showEditGame($game, $devs);
+    }
+
+    public function gameEdited($id) {
+        $this->gamesModel->editGame($id);
         header('Location: ' . BASE_URL);
     }
 }

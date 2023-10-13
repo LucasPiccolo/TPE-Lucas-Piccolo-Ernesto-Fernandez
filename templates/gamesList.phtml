@@ -5,8 +5,9 @@
         Filtrar por desarrollador
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="games">Mostrar todos</a>
         <?php foreach($devs as $dev): ?>
-        <a class="dropdown-item" href="games/developer/<?= $dev->id ?>"><?= $dev->nombreDesarrollador ?></a>
+        <a class="dropdown-item" href="games/developer/<?= $dev->desarrolladorId ?>"><?= $dev->nombreDesarrollador ?></a>
         <?php endforeach ?>
     </div>
     <div>
@@ -27,11 +28,11 @@
     <tbody>
     <?php foreach($games as $game): ?>
         <tr>
-            <td><a class="link-underline link-underline-opacity-0" href='game/<?= $game->id ?>'><?= $game->nombreJuego ?></a></td>
+            <td><a class="link-underline link-underline-opacity-0" href='game/<?= $game->juegoId ?>'><?= $game->nombreJuego ?></a></td>
             <td><?= $game->nombreDesarrollador ?></td>
             <td><?= $game->fechaLanzamiento ?></td>
             <td><?= $game->edad ?></td>
-            <td><a class="btn btn-warning">Editar</a><a href='delete-game/<?= $game->id ?>' class="btn btn-danger">Borrar</a></td>
+            <td><a href='edit-game/<?= $game->juegoId ?>' class="btn btn-warning">Editar</a><a href='delete-game/<?= $game->juegoId ?>' class="btn btn-danger">Borrar</a></td>
         </tr>
     <?php endforeach ?>
     </tbody>

@@ -1,7 +1,7 @@
 <?php
 
 class ErrorView {
-    public static function showError($message) {
+    public function showError($message) {
         require_once './templates/error.phtml';
     }
 }

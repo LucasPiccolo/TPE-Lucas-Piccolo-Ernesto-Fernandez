@@ -2,7 +2,7 @@
 // Hacemos un require_once de los controllers que usamos
 require_once './app/controllers/GamesController.php';
 require_once './app/controllers/DevsController.php';
-require_once './app/views/ErrorView.php';
+require_once './app/controllers/ErrorController.php';
 
 // Definimos la constante "BASE_URL"
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -49,6 +49,14 @@ switch ($params[0]) {
         $controller = new GamesController();
         $controller->deleteGame($params[1]);
         break;
+    case 'edit-game':
+        $controller = new GamesController();
+        $controller->editGame($params[1]);
+        break;
+    case 'game-edited':
+        $controller = new GamesController();
+        $controller->gameEdited($params[1]);
+        break;
     case 'developers':
         $controller = new DevsController();
         $controller->showDevs();
@@ -66,6 +74,7 @@ switch ($params[0]) {
         $controller->deleteDev($params[1]);
         break;
     default: 
-        ErrorView::showError('404 - Not Found');
+        $controller = new ErrorController();
+        $controller->notFound();
         break;
 }

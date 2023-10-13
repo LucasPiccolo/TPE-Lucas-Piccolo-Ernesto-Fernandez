@@ -9,7 +9,11 @@ class GamesView {
         require './templates/game.phtml';
     }
 
-    public function showAddGame($devs, $message = null) {
+    public function showAddGame($devs) {
         require './templates/addGame.phtml';
+    }
+
+    public function showEditGame($game, $devs) {
+        require './templates/editGame.phtml';
     }
 }
