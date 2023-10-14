@@ -29,6 +29,11 @@
         <input class="form-control" id="imagen" name='imagen' value='Sin imagen todavía' placeholder="Sin imagen todavía">
     </div>
     <button type="submit" class="btn btn-primary">Agregar</button>
+    <?php if ($message != null): ?>
+    <div>
+        <p><?= $message ?></p>
+    </div>
+    <?php endif ?>
 </form>
 
 <?php require_once './templates/footer.phtml' ?>

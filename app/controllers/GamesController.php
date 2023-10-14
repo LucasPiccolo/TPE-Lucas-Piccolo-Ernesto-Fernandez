@@ -29,19 +29,18 @@ class GamesController {
         $this->view->showGames($games, $devs);
     }
 
-    public function showAddGame() {
+    public function showAddGame($message = null) {
         $devs = $this->devsModel->getDevs();
-        $this->view->showAddGame($devs);
+        $this->view->showAddGame($devs, $message);
     }
 
     public function addNewGame() {
         if (empty($_POST['nombreJuego']) || empty($_POST['fechaLanzamiento']) || empty($_POST['desarrolladorId']) || empty($_POST['edad']) || empty($_POST['descripcionJuego']) || empty($_POST['imagen'])) {
-            $ErrorView = new ErrorView();
-            $ErrorView->showError('El juego seleccionado no existe.');
-            die();
+            $this->showAddGame('Faltan completar campos');
+        } else {
+            $this->gamesModel->addGame();
+            header('Location: ' . BASE_URL);
         }
-        $this->gamesModel->addGame();
-        header('Location: ' . BASE_URL);
     }
 
     public function showGameById($id) {

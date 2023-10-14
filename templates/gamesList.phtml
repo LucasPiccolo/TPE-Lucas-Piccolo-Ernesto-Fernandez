@@ -10,9 +10,11 @@
         <a class="dropdown-item" href="games/developer/<?= $dev->desarrolladorId ?>"><?= $dev->nombreDesarrollador ?></a>
         <?php endforeach ?>
     </div>
+    <?php if(AuthHelper::isLogged()): ?>
     <div>
         <a href='add-game' class='btn btn-success'>+ Agregar</a>
     </div>
+    <?php endif ?>
 </div>
 
 <table class="table table-hover table-dark">
@@ -22,7 +24,9 @@
             <th scope="col">Desarrollador</th>
             <th scope="col">Fecha de lanzamiento</th>
             <th scope="col">Edad mínima</th>
+            <?php if(AuthHelper::isLogged()): ?>
             <th scope="col">Edición</th>
+            <?php endif ?>
         </tr>
     </thead>
     <tbody>
@@ -32,11 +36,12 @@
             <td><?= $game->nombreDesarrollador ?></td>
             <td><?= $game->fechaLanzamiento ?></td>
             <td><?= $game->edad ?></td>
+            <?php if(AuthHelper::isLogged()): ?>
             <td><a href='edit-game/<?= $game->juegoId ?>' class="btn btn-warning">Editar</a><a href='delete-game/<?= $game->juegoId ?>' class="btn btn-danger">Borrar</a></td>
+            <?php endif ?>
         </tr>
     <?php endforeach ?>
     </tbody>
 </table>
-
 
 <?php require './templates/footer.phtml' ?>

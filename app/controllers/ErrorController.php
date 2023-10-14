@@ -1,5 +1,6 @@
 <?php
 require_once './app/views/ErrorView.php';
+require_once "./app/helpers/AuthHelper.php";
 
 class ErrorController {
     private $view;

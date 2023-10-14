@@ -1,6 +1,7 @@
 <?php
 require_once './app/models/DevsModel.php';
 require_once './app/views/DevsView.php';
+require_once "./app/helpers/AuthHelper.php";
 
 class DevsController {
     private $model;

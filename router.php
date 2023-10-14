@@ -3,6 +3,7 @@
 require_once './app/controllers/GamesController.php';
 require_once './app/controllers/DevsController.php';
 require_once './app/controllers/ErrorController.php';
+require_once './app/controllers/AuthController.php';
 
 // Definimos la constante "BASE_URL"
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -72,6 +73,18 @@ switch ($params[0]) {
     case 'delete-dev':
         $controller = new DevsController();
         $controller->deleteDev($params[1]);
+        break;
+    case 'login':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
+    case 'auth':
+        $controller = new AuthController();
+        $controller->auth();
+        break;
+    case 'logout':
+        $controller = new AuthController();
+        $controller->logout();
         break;
     default: 
         $controller = new ErrorController();
