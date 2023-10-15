@@ -24,7 +24,7 @@
             <td><?= $dev->fechaCreacion ?></td>
             <td><?= $dev->origen ?></td>
             <?php if(AuthHelper::isLogged()): ?>
-            <td><a class="btn btn-warning">Editar</a><a href='delete-dev/<?= $dev->desarrolladorId ?>' class="btn btn-danger">Borrar</a></td>
+            <td><a href='edit-dev/<?= $dev->desarrolladorId ?>' class="btn btn-warning">Editar</a><a href='delete-dev/<?= $dev->desarrolladorId ?>' class="btn btn-danger">Borrar</a></td>
             <?php endif ?>
         </tr>
     <?php endforeach ?>

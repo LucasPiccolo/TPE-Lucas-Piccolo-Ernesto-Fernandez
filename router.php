@@ -74,6 +74,14 @@ switch ($params[0]) {
         $controller = new DevsController();
         $controller->deleteDev($params[1]);
         break;
+    case 'edit-dev':
+        $controller = new DevsController();
+        $controller->editDev($params[1]);
+        break;
+    case 'dev-edited':
+        $controller = new DevsController();
+        $controller->devEdited($params[1]);
+        break;
     case 'login':
         $controller = new AuthController();
         $controller->showLogin();

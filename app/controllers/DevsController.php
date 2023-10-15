@@ -38,6 +38,18 @@ class DevsController {
         }
     }
 
+    public function editDev($id) {
+        $dev = $this->model->getDev($id);
+        $this->view->showEditDev($dev);
+    }
+
+    public function devEdited($id) {
+        if (AuthHelper::isLogged()) {
+            $this->model->editDev($id);
+        }
+        header('Location: ' . BASE_URL . '/developers');
+    }
+
     public function deleteDev($id) {
         $games = $this->gamesModel->getGamesByDevId($id);
         if (count($games) == 0 && AuthHelper::isLogged()) {

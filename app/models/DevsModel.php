@@ -18,6 +18,17 @@ class DevsModel {
         $query->execute([$_POST['nombreDesarrollador'], $_POST['fechaCreacion'], $_POST['origen']]);
     }
 
+    public function getDev($id) {
+        $query = $this->db->prepare('SELECT * FROM desarrolladores WHERE desarrolladorId = ?');
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function editDev($id) {
+        $query = $this->db->prepare('UPDATE desarrolladores SET nombreDesarrollador = ?, origen = ?, fechaCreacion = ? WHERE desarrolladorId = ?');
+        $query->execute([$_POST['nombreDesarrollador'], $_POST['origen'], $_POST['fechaCreacion'], $id]);
+    }
+
     public function deleteDev($id) {
         $query = $this->db->prepare('DELETE FROM desarrolladores WHERE desarrolladorId = ?');
         $query->execute([$id]);
