@@ -5,7 +5,7 @@ class DevsView {
         require './templates/devsList.phtml';
     }
 
-    public function showAddDev() {
+    public function showAddDev($message) {
         require './templates/addDev.phtml';
     }
 }

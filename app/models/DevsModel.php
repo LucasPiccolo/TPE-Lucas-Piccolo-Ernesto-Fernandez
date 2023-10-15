@@ -19,7 +19,7 @@ class DevsModel {
     }
 
     public function deleteDev($id) {
-        $query = $this->db->prepare('DELETE FROM desarrolladores WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM desarrolladores WHERE desarrolladorId = ?');
         $query->execute([$id]);
     }
 }

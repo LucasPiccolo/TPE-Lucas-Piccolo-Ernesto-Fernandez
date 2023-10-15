@@ -14,6 +14,11 @@
       <input type="text" class="form-control" id="origen" name='origen' placeholder="País de procedencia">
     </div>
     <button type="submit" class="btn btn-primary">Agregar</button>
+    <?php if ($message != null): ?>
+    <div>
+        <p><?= $message ?></p>
+    </div>
+    <?php endif ?>
 </form>
 
 <?php require_once './templates/footer.phtml' ?>

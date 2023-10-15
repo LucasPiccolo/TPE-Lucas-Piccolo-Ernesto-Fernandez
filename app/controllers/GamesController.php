@@ -37,8 +37,10 @@ class GamesController {
     public function addNewGame() {
         if (empty($_POST['nombreJuego']) || empty($_POST['fechaLanzamiento']) || empty($_POST['desarrolladorId']) || empty($_POST['edad']) || empty($_POST['descripcionJuego']) || empty($_POST['imagen'])) {
             $this->showAddGame('Faltan completar campos');
-        } else {
+        } elseif (AuthHelper::isLogged()) {
             $this->gamesModel->addGame();
+            header('Location: ' . BASE_URL);
+        } else {
             header('Location: ' . BASE_URL);
         }
     }
@@ -54,7 +56,9 @@ class GamesController {
     }
 
     public function deleteGame($id) {
-        $this->gamesModel->deleteGame($id);
+        if (AuthHelper::isLogged()) {
+            $this->gamesModel->deleteGame($id);
+        }
         header('Location: ' . BASE_URL);
     }
 
@@ -65,7 +69,9 @@ class GamesController {
     }
 
     public function gameEdited($id) {
-        $this->gamesModel->editGame($id);
+        if (AuthHelper::isLogged()) {
+            $this->gamesModel->editGame($id);
+        }
         header('Location: ' . BASE_URL);
     }
 }

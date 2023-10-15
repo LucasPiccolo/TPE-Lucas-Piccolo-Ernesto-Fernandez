@@ -1,8 +1,10 @@
 <?php require './templates/header.phtml' ?>
 
+<?php if(AuthHelper::isLogged()): ?>
 <div class='detalles-desarrolladores'>
     <a href='add-developer' class='btn btn-success'>+ Agregar</a>
 </div>
+<?php endif ?>
 
 <table class="table table-hover table-dark">
     <thead>
@@ -10,7 +12,9 @@
             <th scope="col">Nombre</th>
             <th scope="col">Fecha de creación</th>
             <th scope="col">Origen</th>
+            <?php if(AuthHelper::isLogged()): ?>
             <th scope="col">Edición</th>
+            <?php endif ?>
         </tr>
     </thead>
     <tbody>
@@ -19,7 +23,9 @@
             <td><?= $dev->nombreDesarrollador ?></td>
             <td><?= $dev->fechaCreacion ?></td>
             <td><?= $dev->origen ?></td>
+            <?php if(AuthHelper::isLogged()): ?>
             <td><a class="btn btn-warning">Editar</a><a href='delete-dev/<?= $dev->desarrolladorId ?>' class="btn btn-danger">Borrar</a></td>
+            <?php endif ?>
         </tr>
     <?php endforeach ?>
     </tbody>
