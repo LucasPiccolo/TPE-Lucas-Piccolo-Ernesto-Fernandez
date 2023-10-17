@@ -6,8 +6,12 @@ class UsersModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=tienda;charset=utf8', 'root', '');
-        AuxHelper::deployDB();
+        try {
+            $this->db = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASS);
+        } catch (\Throwable $th) {   
+            AuxHelper::deployDB();
+            $this->db = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASS);
+        }
     }
 
     public function getUser() {

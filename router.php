@@ -87,6 +87,9 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
+    case 'hash':
+        echo password_hash('admin', PASSWORD_DEFAULT);
+        break;
     default: 
         $controller = new ErrorController();
         $controller->notFound();

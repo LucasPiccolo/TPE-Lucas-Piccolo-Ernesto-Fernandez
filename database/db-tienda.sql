@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2023 at 05:17 AM
+-- Generation Time: Oct 17, 2023 at 02:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -64,7 +64,7 @@ CREATE TABLE `juegos` (
 --
 
 INSERT INTO `juegos` (`juegoId`, `nombreJuego`, `fechaLanzamiento`, `desarrolladorId`, `descripcionJuego`, `edad`, `imagen`) VALUES
-(12, 'Plantas vs Zombies', '2008-09-10', 4, 'Plantas que pelean contra zombis', 6, 'Sin imagen todavía'),
+(12, 'Plantas vs Zombies', '2008-09-10', 4, 'Plantas que pelean contra zombis', 3, 'Sin imagen todavía'),
 (13, 'Minecraft', '2009-07-08', 5, 'Juego de supervivencia libre', 8, 'Sin imagen todavía'),
 (16, 'Diablo 3', '2012-02-11', 7, 'ARPG muy buen juego', 13, 'https://oyster.ignimgs.com/mediawiki/apis.ign.com/diablo-3/6/60/Diablo-3-Reaper-of-Souls-Wallpaper-6.jpg?width=960');
 
@@ -84,7 +84,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`usuario`, `contra`) VALUES
-('webadmin', 'admin');
+('webadmin', '$2y$10$qu9BcQILnTyPSlqFLs59qOgPW5Yc9.PXAgoF0jjqa6jk33A672d3q');
 
 --
 -- Indexes for dumped tables
