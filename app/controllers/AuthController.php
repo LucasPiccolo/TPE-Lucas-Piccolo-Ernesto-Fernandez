@@ -33,8 +33,13 @@ class AuthController {
             die();
         }
 
+        if(!password_verify($_POST['contra'], $user->contra)) {
+            $this->showLogin('La contraseña es incorrecta');
+            die();
+        }
         AuthHelper::login($user);
         header('Location: ' . BASE_URL);
+
     }
 
     public function logout() {

@@ -1,10 +1,14 @@
 <?php
 
+require_once './config.php';
+require_once './app/helpers/AuxHelper.php';
+
 class GamesModel {
     private $db;
 
     public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;dbname=tienda;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASS);
+        AuxHelper::deployDB();
     }
 
     public function getGames() {

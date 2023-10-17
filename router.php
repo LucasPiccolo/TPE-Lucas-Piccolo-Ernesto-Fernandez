@@ -14,13 +14,6 @@ if (!empty( $_GET['action'])) {
     $action = $_GET['action'];
 }
 
-// TABLA DE RUTEO:
-// games        ->      gamesController->showGames()
-// developers   ->      devsController->showDevs()
-// game         ->      gamesController->showGameById()
-// add-game     ->      gamesController->showAddGame()
-// add-new-game ->      gamesController->addNewGame()
-
 
 // parseamos la accion para separar accion real de parametros
 $params = explode('/', $action);
