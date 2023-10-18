@@ -47,6 +47,8 @@ class GamesController {
 
     public function showGameById($id) {
         $game = $this->gamesModel->getGameById($id);
+        $game->fechaLanzamiento = AuxHelper::reformatDate($game->fechaLanzamiento);
+        $game->fechaCreacion = AuxHelper::reformatDate($game->fechaCreacion);
         if($game) {
             $this->view->showGame($game);
         } else {

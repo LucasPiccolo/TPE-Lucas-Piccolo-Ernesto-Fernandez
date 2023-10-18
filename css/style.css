@@ -45,3 +45,48 @@ footer {
 .form-group label {
     color: white;
 }
+
+.login-failed {
+    color: white;
+}
+
+.listed-game-title {
+    text-decoration: none;
+    color: rgb(208, 208, 49);
+}
+
+.contenedor-juego {
+    margin: 30px 100px;
+    padding: 20px;
+    background-color: rgb(6, 6, 93);
+    border-radius: 10px;
+}
+
+.titulo-juego {
+    color: rgb(223, 222, 222);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.descripcion-juego,
+.fecha-juego,
+.desarrollador-juego,
+.edad-juego {
+    color: rgb(200, 200, 200);
+    margin: 15px 100px;
+}
+
+.contenedor-imagen-juego {
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-juego {
+    display: block;
+    width: 40vw;
+    height: auto;
+}
+
+.edad-juego {
+    color: rgb(126, 126, 126);
+}

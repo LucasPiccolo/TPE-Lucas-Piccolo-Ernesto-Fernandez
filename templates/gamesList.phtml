@@ -32,7 +32,7 @@
     <tbody>
     <?php foreach($games as $game): ?>
         <tr>
-            <td><a class="link-underline link-underline-opacity-0" href='game/<?= $game->juegoId ?>'><?= $game->nombreJuego ?></a></td>
+            <td><a class="listed-game-title" href='game/<?= $game->juegoId ?>'><?= $game->nombreJuego ?></a></td>
             <td><?= $game->nombreDesarrollador ?></td>
             <td><?= $game->fechaLanzamiento ?></td>
             <td><?= $game->edad ?></td>

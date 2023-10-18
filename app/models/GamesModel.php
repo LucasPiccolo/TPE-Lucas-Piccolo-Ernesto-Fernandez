@@ -29,7 +29,7 @@ class GamesModel {
     }
 
     public function getGameById($id) {
-        $query = $this->db->prepare('SELECT * FROM juegos INNER JOIN desarrolladores ON juegos.desarrolladorId = desarrolladores.desarrolladorId WHERE juegos.juegoId = ?');
+        $query = $this->db->prepare('SELECT * FROM juegos JOIN desarrolladores ON juegos.desarrolladorId = desarrolladores.desarrolladorId WHERE juegos.juegoId = ?');
         $query->execute([$id]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
