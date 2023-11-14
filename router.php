@@ -1,5 +1,6 @@
 <?php
 // Hacemos un require_once de los controllers que usamos
+require_once 'config.php';
 require_once './app/controllers/GamesController.php';
 require_once './app/controllers/DevsController.php';
 require_once './app/controllers/ErrorController.php';
